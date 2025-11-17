@@ -1,0 +1,22 @@
+# macOS
+.DS_Store
+
+# editor dirs
+.vscode/
+.idea/
+
+# logs directory
+logs/
+
+# python cache
+__pycache__/
+
+# node modules
+node_modules/
+
+# secrets and keys (store outside repo)
+secrets/
+.env
+
+# docker
+docker-compose.override.yml
