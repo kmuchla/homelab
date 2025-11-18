@@ -112,19 +112,44 @@ Lokalizacja B zawiera **dwa poziomy routerów**:
 
 ## 7. VPN – połączenie do VPS
 
-- Klient VPN: Raspberry Pi (`openvpn-client`)
-- Tunel: `10.8.x.x` (do potwierdzenia)
-- Cel:
-  - Połączenie z Lokalizacją A
-  - Dostęp do NAS z obu lokalizacji
-  - Zdalny dostęp do usług w LAN B przez VPS
+Klient VPN: Raspberry Pi (`openvpn-client`)
+Tunel: `10.8.x.x` (do potwierdzenia)
+Cel:
+
+- Połączenie z Lokalizacją A
+- Dostęp do NAS z obu lokalizacji
+- Zdalny dostęp do usług w LAN B przez VPS
+
+## 8. Trasy statyczne (konfiguracja routera Lokalizacja B)
+
+Na routerze w Lokalizacji B dodano statyczne trasy, aby zapewnić prawidłowe kierowanie ruchu między lokalnymi podsieciami a tunelem VPN. Poniżej zestawienie wpisów routingu skonfigurowanych na urządzeniu (przykładowe):
+
+- `192.168.102.0/24` → Brama: `192.168.0.10` (Interfejs: LAN)
+- `192.168.105.0/24` → Brama: `192.168.0.10` (Interfejs: LAN)
+- `192.168.101.0/24` → Brama: `192.168.0.10` (Interfejs: LAN)
+- `192.168.100.0/24` → Brama: `192.168.0.10` (Interfejs: LAN)
+- `10.8.0.0/24` → Brama: `192.168.0.2` (Interfejs: LAN) — tunel OpenVPN / synchronizacja z VPS
+
+Uwaga:
+
+- Trasy te kierują ruch do lokalnej bramy/routera, który wie jak przekazać pakiety do odpowiednich VLANów/podsieci.
+- Po dodaniu brakującej trasy `192.168.102.0/24` problem z dostępem z Lokalizacji B do sieci CCTV w Lokalizacji A został rozwiązany.
+- Zalecenie: wykonać backup konfiguracji routera po wprowadzeniu zmian i dodać odpowiedni wpis do dokumentacji operacyjnej.
+
+## 9. Elementy wymagające weryfikacji (TODO)
+
+1. Adres IP **switcha w Pokoju Szymona**
+2. Adres IP **routera w Piwnicy**
+3. Adres IP **routera w drugim biurze**
+4. Adres IP urządzenia z gniazda nr 5 w routerze AX1800
+5. Zakresy sieci tunelowej OpenVPN między VPS ↔ Lok B
 
 ---
 
 ## 8. Elementy wymagające weryfikacji (TODO)
 
-1. Adres IP **switcha w Pokoju Szymona**
-2. Adres IP **routera w Piwnicy**
-3. Adres IP **routera w drugim biurze**
+1. Adres IP do sprawdzenia
+2. Adres IP do sprawdzenia
+3. Adres IP do sprawdzenia
 4. Adres IP urządzenia z gniazda nr 5 w routerze AX1800
 5. Zakresy sieci tunelowej OpenVPN między VPS ↔ Lok B
