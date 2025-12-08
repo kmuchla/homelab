@@ -4,7 +4,7 @@ Dokument opisuje topologię sieci w dwóch lokalizacjach oraz połączenie z VPS
 
 ## 1. Lokalizacja A
 
-**Podsieć:** `192.168.100.0/24`
+**Podsieć:** `192.168.10X.0/24`
 **Gateway / Firewall:** OPNsense
 **DHCP:** OPNsense
 
@@ -35,7 +35,7 @@ Adresy `192.168.100.x` są przykładowe – w repo nie są publikowane pełne li
 ### 1.4 Dostęp administracyjny
 
 - GUI OPNsense dostępne wyłącznie:
-  - z sieci `192.168.100.0/24` lub
+  - z sieci `192.168.10X.0/24` lub
   - z zaufanych adresów przez tunel VPN.
 
 ---
