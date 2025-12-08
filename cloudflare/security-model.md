@@ -30,4 +30,4 @@ Turnstile jest wdrożone w dwóch scenariuszach:
 1. **Zabezpieczenie numeru telefonu** — numer jest ujawniany dopiero po poprawnej weryfikacji Turnstile.
 2. **Zabezpieczenie logowania** — Turnstile aktywne na jednej stronie, aby ograniczyć automatyczne próby logowania.
 
-Pełna konfiguracja Cloudflare Turnstile [dostępna tutaj](waf-concepts.md#4-turnstile).
+Pełna konfiguracja Cloudflare Turnstile [dostępna tutaj](https://github.com/kmuchla/wordpress-phone-protection).
