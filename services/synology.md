@@ -18,10 +18,3 @@
 ## 3. Integracje
 
 - widoczny z obu lokalizacji
-- backupy IoT / HA / systemów
-- miejsce pod logi Wazuh (opcjonalnie)
-
-## 4. TODO
-
-- dokumentacja przekierowań portów (AX1800)
-- plan podłączenia Synology do VLAN-ów (jeśli pojawią się w B)

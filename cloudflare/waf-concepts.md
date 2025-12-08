@@ -22,4 +22,4 @@ Cloudflare WAF nie jest w pełni konfigurowany dla wszystkich domen, jednak:
 
 ### 4. Turnstile
 
-- ochrona formularzy / numeru telefonu zamieszczonego na stronie www.
+- ochrona formularzy / numeru telefonu zamieszczonego na stronie.

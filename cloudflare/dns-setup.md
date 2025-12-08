@@ -6,23 +6,16 @@ Każda z czterech domen korzysta z Cloudflare DNS.
 
 ### 1. Rekordy A
 
-- `domainX.com` → publiczny adres VPS (proxied)
-- `www.domainX.com` → CNAME na `domainX.com`
+- `muchla.pl` → publiczny adres VPS (proxied)
+- `www.muchla.pl` → CNAME na `muchla.pl`
 
 ### 2. Rekordy CNAME
 
-- Warianty www lub aliasy migracyjne
+- Warianty www lub aliasy migracyjne.
 
-### 3. Rekordy TXT
-
-- SPF (jeśli domena obsługuje pocztę — opcjonalnie)
-- Weryfikacje Cloudflare, Google itp.
-
-### 4. CAA
-
-- Zezwolenie na Let’s Encrypt
-
+![Konfiguracja DNS](screenshots/dns-records.jpg)
 ---
+### 3. CAA
 
 ## Proxy (Orange Cloud)
 
@@ -32,15 +25,14 @@ Wszystkie domeny mają aktywny Cloudflare Proxy:
 - ochrona przed DDoS,
 - caching dla statycznych zasobów.
 
----
-
 ## SSL/TLS
 
 - Tryb: **Full Strict**
 - Origin: Let’s Encrypt
 - Edge: certyfikaty CF
 
----
+![Konfiguracja DNS](screenshots/ssl:tls.jpg)
+![Konfiguracja DNS](screenshots/edge-certificates.jpg)
 
 ## Page Rules
 

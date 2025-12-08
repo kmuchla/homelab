@@ -1,4 +1,4 @@
-# Homelab Documentation
+# Homelab
 
 Dokumentacja techniczna środowiska homelab obejmująca dwie lokalizacje, centralny VPS, tunel VPN oraz zestaw usług działających lokalnie i w chmurze. Repozytorium zawiera schematy, konfiguracje i opisy architektury sieci, bezpieczeństwa oraz usług.
 
@@ -9,15 +9,23 @@ Dokumentacja techniczna środowiska homelab obejmująca dwie lokalizacje, centra
 Środowisko składa się z trzech głównych części:
 
 - **Lokalizacja A (192.168.1XX.0/24)**
-  Firewall OPNsense, system CCTV (DVR + kamery), urządzenia IoT. Połączenie z VPS odbywa się przez tunel OpenVPN.
+  Firewall OPNsense, system CCTV, urządzenia IoT. Połączenie z VPS odbywa się przez tunel OpenVPN.
 
 - **Lokalizacja B (192.168.0.0/24)**
-  Główna lokalizacja homelabu z NAS, Hyper-V, Wazuh Server, Raspberry Pi 5 (Pi-hole, Home Assistant), komputerami, drukarkami i IoT.
-  Statyczne trasy umożliwiają pełny dostęp do Lokalizacji A oraz do pozostałych podsieci.
+  Główna lokalizacja homelabu z NAS, Hyper-V, Wazuh Server, Raspberry Pi 5 (Pi-hole, Home Assistant), komputerami, drukarkami i IoT. Statyczne trasy umożliwiają pełny dostęp do Lokalizacji A oraz do pozostałych podsieci.
 
-- **VPS (OVH)**
-  Publiczny serwer z OpenVPN Server, Apache2 (wiele domen za Cloudflare), UFW oraz Wazuh Agent.
-  Pełni funkcję centralnego węzła VPN.
+- **VPS**
+  Publiczny serwer z OpenVPN Server, Apache2 (wiele domen za **Cloudflare**), UFW oraz Wazuh Agent. Pełni funkcję centralnego VPN.
+
+  ![Cloudflare](https://img.shields.io/badge/Cloudflare-F38020?logo=cloudflare&logoColor=white) wykorzystane usługi:
+
+  - [Zero Trust Access](cloudflare/zero-trust.md),
+  - [Cloudflare Tunnel](cloudflare/zero-trust.md),
+  - [DNS Hosting](cloudflare/dns-setup.md),
+  - [Universal SSL (Edge Certificates)](cloudflare/dns-setup.md#ssltls),
+  - [Page Rules / Redirect Rules](cloudflare/dns-setup.md#page-rules),
+  - [Cloudflare Turnstile](cloudflare/waf-concepts.md#4-turnstile),
+  - [Proxy HTTPS (DNS proxied – orange cloud)](cloudflare/dns-setup.md#rekordy).
 
 ---
 

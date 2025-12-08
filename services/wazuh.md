@@ -29,7 +29,3 @@
 
 - wazuh-agent.service aktywny
 - logi systemowe i OpenVPN
-
-## 5. TODO
-
-- integracja z OPNsense (API + Wazuh module)
