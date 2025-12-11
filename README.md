@@ -15,7 +15,7 @@ Dokumentacja techniczna środowiska homelab obejmująca dwie lokalizacje, centra
   Główna lokalizacja homelabu z NAS, Hyper-V, Wazuh Server, Raspberry Pi 5 (Pi-hole, Home Assistant), komputerami, drukarkami i IoT. Statyczne trasy umożliwiają pełny dostęp do Lokalizacji A oraz do pozostałych podsieci.
 
 - **VPS**
-  Publiczny serwer z OpenVPN Server, Apache2 (wiele domen za **Cloudflare**), UFW oraz Wazuh Agent. Pełni funkcję centralnego VPN.
+  Publiczny serwer z OpenVPN Server, Apache2 (wiele domen za **Cloudflare**), UFW oraz **Wazuh Agent**. Pełni funkcję centralnego VPN.
 
   ![Cloudflare](https://img.shields.io/badge/Cloudflare-F38020?logo=cloudflare&logoColor=white) wykorzystane usługi:
 
@@ -27,7 +27,8 @@ Dokumentacja techniczna środowiska homelab obejmująca dwie lokalizacje, centra
   - [Cloudflare Turnstile](cloudflare/waf-concepts.md#4-turnstile),
   - [Proxy HTTPS (DNS proxied – orange cloud)](cloudflare/dns-setup.md#rekordy).
 
----
+  ![Monitoring: Wazuh](https://img.shields.io/badge/Monitoring-Wazuh-0077B6?style=flat-square&logo=wazuh) przykładowe incydenty:
+  - [Raport reagowania na incydent (IR-2025-12-10)](/security-incidents/IR-2025-12-10.md)
 
 ## 2. Sieć i routing
 
