@@ -1,3 +1,5 @@
+> ⚠️ Dokument historyczny. Aktualny model DNS opisany jest w [`records.md`](../cloudflare/dns/records.md).
+
 # DNS Setup (Cloudflare)
 
 Każda z czterech domen korzysta z Cloudflare DNS.
@@ -13,8 +15,8 @@ Każda z czterech domen korzysta z Cloudflare DNS.
 
 - Warianty www lub aliasy migracyjne.
 
-![Konfiguracja DNS](screenshots/dns-records.jpg)
----
+## ![Konfiguracja DNS](screenshots/dns-records.jpg)
+
 ### 3. CAA
 
 ## Proxy (Orange Cloud)
