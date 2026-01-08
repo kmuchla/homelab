@@ -46,8 +46,7 @@ Cloudflare pełni w tym środowisku rolę **publicznej warstwy brzegowej**, odpo
 - szyfrowanie Edge → Origin (Full Strict),
 - centralne zarządzanie certyfikatami.
 
-📄 Dokumentacja:
-- [SSL/TLS – Edge ↔ Origin](cloudflare/ssl-tls/edge-origin.md)
+📄 Dokumentacja: [SSL/TLS – Edge ↔ Origin](cloudflare/ssl-tls/edge-origin.md)
 
 ---
 
