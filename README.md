@@ -2,7 +2,11 @@
 
 Dokumentacja techniczna środowiska homelab obejmująca dwie lokalizacje, centralny VPS, tunel VPN oraz zestaw usług działających lokalnie i w chmurze. Repozytorium zawiera schematy, konfiguracje i opisy architektury sieci, bezpieczeństwa oraz usług.
 
----
+
+
+
+![test](diagrams/test.svg)
+
 
 ## 1. Architektura
 
