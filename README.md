@@ -2,25 +2,24 @@
 
 Dokumentacja techniczna środowiska homelab obejmująca dwie lokalizacje, centralny VPS, tunel VPN oraz zestaw usług działających lokalnie i w chmurze. Repozytorium zawiera schematy, konfiguracje i opisy architektury sieci, bezpieczeństwa oraz usług.
 
-
-
-
-![test](diagrams/test.svg)
-
+![test](diagrams/homelab_ver1.drawio)
 
 ## 1. Architektura
 
 Środowisko składa się z trzech głównych części:
 
 ### Lokalizacja A (192.168.1XX.0/24)
-  Firewall OPNsense, system CCTV, urządzenia IoT. Połączenie z VPS odbywa się przez tunel OpenVPN.
+
+Firewall OPNsense, system CCTV, urządzenia IoT. Połączenie z VPS odbywa się przez tunel OpenVPN.
 
 ### Lokalizacja B (192.168.0.0/24)
-  Główna lokalizacja homelabu z NAS, Hyper-V, Wazuh Server, Raspberry Pi 5 (Pi-hole, Home Assistant), komputerami, drukarkami i IoT. Statyczne trasy umożliwiają pełny dostęp do Lokalizacji A oraz do pozostałych podsieci.
 
- ### VPS
+Główna lokalizacja homelabu z NAS, Hyper-V, Wazuh Server, Raspberry Pi 5 (Pi-hole, Home Assistant), komputerami, drukarkami i IoT. Statyczne trasy umożliwiają pełny dostęp do Lokalizacji A oraz do pozostałych podsieci.
+
+### VPS
 
 Publiczny serwer pełniący rolę:
+
 - centralnego węzła VPN (OpenVPN),
 - origin dla usług WWW (Apache2),
 - punktu integracji z Cloudflare (edge security & access),
@@ -37,15 +36,17 @@ Usługi webowe hostowane na VPS **nie są eksponowane bezpośrednio do Internetu
 Cloudflare pełni w tym środowisku rolę **publicznej warstwy brzegowej**, odpowiadając za:
 
 #### 1. DNS i proxy
+
 - publiczny DNS dla domen,
 - proxy HTTPS (orange cloud),
 - ukrycie adresu IP origin.
 
-📄 Dokumentacja:  [DNS – model rekordów i weryfikacja](cloudflare/dns/records.md)
+📄 Dokumentacja: [DNS – model rekordów i weryfikacja](cloudflare/dns/records.md)
 
 ---
 
 #### 2. TLS / SSL
+
 - terminację TLS na Cloudflare Edge,
 - szyfrowanie Edge → Origin (Full Strict),
 - centralne zarządzanie certyfikatami.
@@ -55,15 +56,17 @@ Cloudflare pełni w tym środowisku rolę **publicznej warstwy brzegowej**, odpo
 ---
 
 #### 3. Dostęp do usług (Zero Trust)
+
 - brak publicznego dostępu do paneli administracyjnych,
 - egzekwowanie polityk dostępu na edge,
-- model *default deny* dla aplikacji wrażliwych (np. Wazuh).
+- model _default deny_ dla aplikacji wrażliwych (np. Wazuh).
 
 📄 Dokumentacja: [Zero Trust – polityki dostępu](cloudflare/zero-trust.md)
 
 ---
 
 #### 4. Udostępnianie aplikacji (Cloudflare Tunnel)
+
 - brak otwartych portów na firewallu origin,
 - routing ruchu po hostname,
 - integracja z DNS i Zero Trust.
@@ -73,15 +76,16 @@ Cloudflare pełni w tym środowisku rolę **publicznej warstwy brzegowej**, odpo
 ---
 
 #### 5. Ochrona aplikacyjna
+
 - redirect rules / page rules,
 - challenge / mitigations na edge,
 - Cloudflare Turnstile dla wybranych aplikacji.
 
 📄 Dokumentacja: [Mechanizmy ochronne i WAF concepts](cloudflare/waf-concepts.md)
 
+![Monitoring: Wazuh](https://img.shields.io/badge/Monitoring-Wazuh-0077B6?style=flat-square&logo=wazuh) przykładowe incydenty:
 
-  ![Monitoring: Wazuh](https://img.shields.io/badge/Monitoring-Wazuh-0077B6?style=flat-square&logo=wazuh) przykładowe incydenty:
-  - [Raport reagowania na incydent (IR-2025-12-10)](/security-incidents/IR-2025-12-10.md)
+- [Raport reagowania na incydent (IR-2025-12-10)](/security-incidents/IR-2025-12-10.md)
 
 ## 2. Sieć i routing
 
